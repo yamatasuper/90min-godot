@@ -1,0 +1,216 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/manga_demo.gd" id="1_manga"]
+[ext_resource type="Texture2D" path="res://assets/bg_cover.png" id="2_cover"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sheet"]
+bg_color = Color(0.965, 0.941, 0.894, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.102, 0.086, 0.071, 1)
+
+[node name="MangaDemo" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_manga")
+
+[node name="Desk" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.07, 0.062, 0.055, 1)
+
+[node name="Page" type="Panel" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 350.0
+offset_top = 18.0
+offset_right = 930.0
+offset_bottom = 700.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sheet")
+
+[node name="Panels" type="Control" parent="Page"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 564.0
+offset_bottom = 540.0
+mouse_filter = 2
+
+[node name="Preview" type="TextureRect" parent="Page/Panels"]
+layout_mode = 0
+offset_right = 548.0
+offset_bottom = 300.0
+mouse_filter = 2
+texture = ExtResource("2_cover")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="EmptyB" type="ColorRect" parent="Page/Panels"]
+layout_mode = 0
+offset_top = 312.0
+offset_right = 220.0
+offset_bottom = 520.0
+mouse_filter = 2
+color = Color(0.89, 0.86, 0.8, 1)
+
+[node name="EmptyC" type="ColorRect" parent="Page/Panels"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 312.0
+offset_right = 548.0
+offset_bottom = 520.0
+mouse_filter = 2
+color = Color(0.89, 0.86, 0.8, 1)
+
+[node name="Caption" type="Panel" parent="Page"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 548.0
+offset_right = 564.0
+offset_bottom = 668.0
+mouse_filter = 2
+
+[node name="Box" type="VBoxContainer" parent="Page/Caption"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="Who" type="Label" parent="Page/Caption/Box"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.788, 0.635, 0.153, 1)
+theme_override_font_sizes/font_size = 15
+text = "Виктор Семёнович"
+
+[node name="Body" type="Label" parent="Page/Caption/Box"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.102, 0.086, 0.071, 1)
+theme_override_font_sizes/font_size = 18
+text = "Прибрежье. Стадион «Торпедо». Западная трибуна закрыта три года."
+autowrap_mode = 3
+
+[node name="Choices" type="HBoxContainer" parent="Page/Caption/Box"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HintRow" type="HBoxContainer" parent="Page/Caption/Box"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Hint" type="Label" parent="Page/Caption/Box/HintRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.42, 0.38, 0.32, 1)
+theme_override_font_sizes/font_size = 13
+text = "клик — следующий кадр"
+
+[node name="PageNo" type="Label" parent="Page/Caption/Box/HintRow"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.42, 0.38, 0.32, 1)
+theme_override_font_sizes/font_size = 13
+text = "страница 1 / 3"
+horizontal_alignment = 2
+
+[node name="BackButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 140.0
+offset_bottom = 36.0
+text = "← меню"
+
+[node name="EndCard" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.035, 0.03, 0.55)
+
+[node name="Sheet" type="Panel" parent="EndCard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -170.0
+offset_right = 250.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sheet")
+
+[node name="Text" type="VBoxContainer" parent="EndCard/Sheet"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 28.0
+offset_right = -28.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="EndTitle" type="Label" parent="EndCard/Sheet/Text"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.102, 0.086, 0.071, 1)
+theme_override_font_sizes/font_size = 28
+text = "Три страницы"
+
+[node name="EndBody" type="Label" parent="EndCard/Sheet/Text"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.102, 0.086, 0.071, 1)
+theme_override_font_sizes/font_size = 18
+text = "Набросок. Сюжет идёт кадром за кадром. Выбор про шнурки становится первой репликой следующей страницы.
+
+Дальше — вся новелла, тем же текстом."
+autowrap_mode = 3
+
+[node name="NovelButton" type="Button" parent="EndCard/Sheet/Text"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Читать новеллу"
+
+[node name="MenuButton" type="Button" parent="EndCard/Sheet/Text"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "В меню"

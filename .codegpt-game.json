@@ -1,0 +1,12 @@
+{
+  "name": "90min",
+  "engine": "godot",
+  "launch": {
+    "cmd": "/Applications/Godot.app/Contents/MacOS/Godot",
+    "args": ["--path", "."]
+  },
+  "log": { "stdout": true },
+  "ready": "Godot Engine v",
+  "window": "90 МИНУТ",
+  "sourceRoots": ["."]
+}

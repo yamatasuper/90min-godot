@@ -1,0 +1,171 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" path="res://assets/bg_cover.png" id="2_cover"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.043, 0.039, 0.031, 0.82)
+content_margin_left = 56.0
+content_margin_top = 110.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.078, 0.067, 0.059, 1)
+content_margin_left = 36.0
+content_margin_top = 32.0
+content_margin_right = 36.0
+content_margin_bottom = 32.0
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_cover")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Shade" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.04, 0.035, 0.03, 0.28)
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 560.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Menu" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Panel/Menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.91, 0.851, 0.659, 1)
+theme_override_font_sizes/font_size = 64
+text = "90 МИНУТ"
+
+[node name="Subtitle" type="Label" parent="Panel/Menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.788, 0.635, 0.153, 1)
+theme_override_font_sizes/font_size = 22
+text = "ПОСЛЕДНИЙ МАТЧ"
+
+[node name="Meta" type="Label" parent="Panel/Menu"]
+layout_mode = 2
+text = "Алексей Бардин  ·  «Торпедо»  ·  Прибрежье"
+
+[node name="Tagline" type="Label" parent="Panel/Menu"]
+layout_mode = 2
+text = "Река за воротами не спрашивает,
+сколько тебе лет."
+
+[node name="Gap" type="Control" parent="Panel/Menu"]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="Panel/Menu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Начать"
+
+[node name="ContinueButton" type="Button" parent="Panel/Menu"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Продолжить"
+
+[node name="AboutButton" type="Button" parent="Panel/Menu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Об игре"
+
+[node name="QuitButton" type="Button" parent="Panel/Menu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Выход"
+
+[node name="Foot" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -380.0
+offset_top = -40.0
+offset_right = -24.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Tab открывает состояние"
+horizontal_alignment = 2
+
+[node name="AboutOverlay" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.04, 0.035, 0.03, 0.9)
+
+[node name="Card" type="PanelContainer" parent="AboutOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -220.0
+offset_right = 420.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+
+[node name="Text" type="VBoxContainer" parent="AboutOverlay/Card"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Heading" type="Label" parent="AboutOverlay/Card/Text"]
+layout_mode = 2
+text = "90 минут"
+
+[node name="Body" type="Label" parent="AboutOverlay/Card/Text"]
+layout_mode = 2
+text = "Девяносто минут последнего матча — вся жизнь. История читается как манга: страница, кадр, облачко.
+
+Ты не симулируешь футбол. Ты проживаешь конец карьеры и смотришь, кем останешься.
+
+Прибрежье. Стадион «Торпедо». Соперник — «Прибой».
+Герой — Алексей Бардин, 34. Опорник. Бывший капитан."
+autowrap_mode = 3
+
+[node name="Hint" type="Label" parent="AboutOverlay/Card/Text"]
+layout_mode = 2
+text = "Клик — закрыть"
