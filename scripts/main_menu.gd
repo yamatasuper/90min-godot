@@ -2,8 +2,11 @@ extends Control
 
 func _ready() -> void:
 	UIKit.apply_theme(self)
-	for button in [%StartButton, %ContinueButton, %AboutButton, %QuitButton]:
+	for button in [%StartButton, %DemoButton, %ContinueButton, %AboutButton, %QuitButton]:
 		_style_menu_button(button)
+	%DemoButton.pressed.connect(func() -> void:
+		get_tree().change_scene_to_file("res://scenes/season_demo.tscn")
+	)
 	%ContinueButton.visible = GameState.has_save()
 	%StartButton.pressed.connect(func() -> void:
 		GameState.mode = "new"

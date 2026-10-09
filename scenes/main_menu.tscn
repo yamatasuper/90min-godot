@@ -90,6 +90,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Начать"
 
+[node name="DemoButton" type="Button" parent="Panel/Menu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Демо: конец сезона"
+
 [node name="ContinueButton" type="Button" parent="Panel/Menu"]
 unique_name_in_owner = true
 visible = false
